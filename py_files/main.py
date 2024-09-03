@@ -14,7 +14,7 @@ from kivymd.uix.selectioncontrol import MDCheckbox
 from kivymd.icon_definitions import md_icons
 from kivy.uix.screenmanager import ScreenManager, Screen,WipeTransition
 
-import recipe_builder
+import recipe_builder as recipe_builder
 
 #kivy.require('2.0.0')
 
@@ -34,7 +34,7 @@ class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Light"
         self.theme_cls.primary_palette = "Indigo"
-        return Builder.load_file("mainmenu.kv")
+        return Builder.load_file("kivy_files\\mainmenu.kv")
 
     def grocery_builder_app(self):
         print("Test")
