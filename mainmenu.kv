@@ -1,0 +1,71 @@
+
+
+WindowManager:
+    #transition: WipeTransition()
+    MainMenuWindow:
+    GroceryListWindow:
+<MainMenuWindow>:
+    name: "main"
+    #transition: WipeTransition("right")
+    Screen:
+        MDBoxLayout:
+            pos_hint: {"center_y":0.9}
+            #adaptive_height: True
+            #valign:'top'
+            #halign:'center'
+            orientation:"vertical"
+            #id:list_maker
+            padding: 10
+            spacing: 10
+            #size: root.width,root.height
+            MDLabel:
+                adaptive_height: True
+                #pos_hint: {"center_y":0.5}
+                id:entry_label
+                font_size: 35
+                #size_hint_y: None
+                halign:'center'
+                #valign:'center'
+                text: "The Food App"
+
+            MDRaisedButton:
+                id:grocery_builder
+                font_size: 20
+                #size_hint_y: None
+                pos_hint: {'center_x':0.5}
+                text: "Grocery List Builder"
+                on_release: app.root.current = "grocery_window"  
+                #root.manager.transition.direction = "left"
+
+            MDRaisedButton:
+                id:grocery_saved
+                font_size: 20
+                #size_hint_y: None
+                pos_hint: {'center_x':0.5}
+                text: "Saved Grocery Lists"
+            MDRaisedButton:
+                id:recipe_builder
+                font_size: 20
+                #size_hint_y: None
+                pos_hint: {'center_x':0.5}
+                text: "Recipe Builder"
+                #on_press: app.recipe_builder_app()
+
+            MDRaisedButton:
+                id:recipe_saved
+                font_size: 20
+                #size_hint_y: None
+                pos_hint: {'center_x':0.5}
+                text: "Saved Recipes"
+
+
+
+
+<GroceryListWindow>:
+    name:"grocery_window"
+    #transition: WipeTransition("left")
+    MDRaisedButton:
+        text: "GO BACK"
+        on_release:app.root.current = "main"
+        #root.manager.transition.direction = "right"
+

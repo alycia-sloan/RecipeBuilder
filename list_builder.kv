@@ -1,0 +1,168 @@
+<Content>:
+    orientation:'vertical'
+    spacing: "20dp"
+    size_hint_y: None
+    height: '220dp'
+    MDTextField:
+        id: new_ingredient
+        hint_text: "Ingredient Name"
+
+    MDTextField:
+        id:new_price
+        hint_text: "Price Per Item"
+
+    MDTextField:
+        id: new_weight
+        hint_text: "Weight in Ounces"
+<Content1>:
+    orientation:'vertical'
+    spacing: "20dp"
+    size_hint_y: None
+    height: '220dp'
+<ListItemWithCheckBox>:
+    text:
+    id:list_item
+    IconLeftWidget:
+        icon: "delete"
+
+        on_release: app.but_press(root)
+
+    RightCheckbox:
+        id:ing_checkbox
+        active: False
+<OneLineListItem>:
+    id:num_menu
+    #on_release: app.set_item(root)
+
+
+
+
+
+Screen:
+
+    MDBoxLayout:
+
+        orientation:"vertical"
+        #id:list_maker
+        padding: 10
+        spacing: 10
+        #size: root.width,root.height
+        #pos_hint: {"center_x":0.5,"center_y":0.5}
+
+        MDBoxLayout: 
+            size_hint: (1,.3)
+            pos_hint: {"center_x":0.5}
+            #height:50
+            MDToolbar:
+                id:entry_label
+                font_size: 15
+                #size_hint_y: None
+                #halign: 'center'
+
+                title: "Grocery List Builder"
+
+        MDBoxLayout:
+            size_hint: (.7,.3)
+            pos_hint: {"center_x":0.5}
+            spacing: 13
+            #valign:'center'
+           # halign:'center'
+            #height:50
+            MDTextField:
+                id: entry_input
+                font_size: 15
+                
+                multiline: False
+                hint_text:"List Name"
+                
+
+                #size_hint:(None,None)
+
+                #height:35
+
+            MDRaisedButton:
+                id:change_list_name
+                text: "Change List Name"
+                #size_hint:(None,None)
+                
+                font_size: 15
+                #width:50
+                #height:35
+                on_press:app.list_name()
+            MDRaisedButton:
+                id:save_list
+                text: "Save List"
+                #size_hint:(None,None)
+                
+                font_size: 15
+                #width:50
+                #height:35
+                on_press:app.save_dialog()
+        MDBoxLayout:
+            size_hint: (.90,.3)
+            pos_hint: {"center_x":0.5}
+            spacing: 13
+            #height:50
+            MDTextField:
+                id:num_input
+                size_hint: (.2,.8)
+                #on_focus: if self.focus: text:"change"
+                text:'Number of Items'
+                #on_focus: if self.focus: app.dropdown.open()
+                multiline: False
+                on_focus: app.num_dropdown()
+                #on_release: app.set_item()
+               
+            MDTextField:
+                id: ing_input
+                size_hint: (.2,.9)
+                font_size: 15
+                multiline: False
+                text: "Item Name"
+                on_focus: app.ing_dropdown()
+                #size_hint:(None,None)
+                #width:200
+                #height:35
+
+            MDRaisedButton:
+                id:add_ingredient
+                text: "Add Ingredient"
+                #size_hint:(None,None)
+                font_size: 15
+                #width:50
+                #height:35
+                on_press:app.ing_name()
+
+                
+
+                
+
+        MDBoxLayout:
+            size_hint: (.90,.3)
+            pos_hint: {"center_x":0.5}
+            #height:300
+            MDLabel:
+                id:list_name_label
+                text:"Grocery List"
+                font_size: 15
+                #pos_hint: {"center_y":.95}
+                halign:'center'
+            MDLabel:
+                id:list_total
+                text:"0.00"
+                font_size: 15
+                halign:'center'
+
+
+        MDBoxLayout:
+            id:scroll_list
+            ScrollView:
+
+                MDList:
+                    id:list_container
+
+                    #adaptive_height: True
+
+
+
+

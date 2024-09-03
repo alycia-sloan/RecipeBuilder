@@ -1,0 +1,59 @@
+
+<Content>:
+    orientation:'vertical'
+    spacing: "20dp"
+    size_hint_y: None
+    height: '220dp'
+
+<ListItemWithCheckBox>:
+    text:
+    id:list_item
+    #on_release: app.root.current = "printlistwindow"
+    on_release: app.recipe_popup()
+        
+    IconLeftWidget:
+        icon: "delete"
+
+        #on_release: app.but_press(root)
+
+    RightCheckbox:
+        id:ing_checkbox
+        active: False
+
+#<OneLineListItem>:
+    #text:
+    #id:show_items
+    #on_release: app.root.current = "printlistwindow"
+    #on_release: app.root.current = "printlistwindow"
+        
+   # IconLeftWidget:
+        #icon: "dot"
+
+        #on_release: app.but_press(root)
+
+    #RightCheckbox:
+        #id:ing_show_checkbox
+        #active: False
+
+Screen:
+
+    #on_kv_post:app.on_start()
+    MDBoxLayout:
+        orientation:"vertical"
+        padding: 10
+        spacing: 10
+        MDToolbar:
+            adaptive_height: True
+            
+            font_size: 35
+            halign:'center'
+            title: "Recipes and Lists"          
+
+        MDBoxLayout:
+            id:list_scroll
+            
+            ScrollView:
+                MDList:
+                    id:show_list_container
+                    
+
